@@ -1,0 +1,39 @@
+{
+	"scripts": {
+		"build": "yarn clean && yarn build:firefox && yarn build:chromium",
+		"build:firefox": "yarn copy-manifest:firefox && npx parcel build 'src/**/*.*' --no-source-maps --target firefox",
+		"build:chromium": "yarn copy-manifest:chromium && npx parcel build 'src/**/*.*' --no-source-maps --target chromium",
+		"watch:firefox": "yarn clean && yarn copy-manifest:firefox && npx parcel watch 'src/**/*.*' --no-source-maps --no-hmr --target firefox",
+		"watch:chromium": "yarn clean && yarn copy-manifest:chromium && npx parcel watch 'src/**/*.*' --no-source-maps --no-hmr --target chromium",
+		"copy-manifest:firefox": "mkdir -p dist/firefox && cp manifest/firefox.json dist/firefox/manifest.json",
+		"copy-manifest:chromium": "mkdir -p dist/chromium && cp manifest/chromium.json dist/chromium/manifest.json",
+		"clean": "rm -rf dist && rm -rf .parcel-cache"
+	},
+	"targets": {
+		"firefox": {
+			"includeNodeModules": true,
+			"optimize": true
+		},
+		"chromium": {
+			"includeNodeModules": true,
+			"optimize": true
+		}
+	},
+	"devDependencies": {
+		"@fontsource/archivo-black": "^5.0.17",
+		"@fontsource/inconsolata": "^5.0.15",
+		"@fortawesome/fontawesome-free": "^6.4.2",
+		"@parcel/transformer-sass": "2.10.0",
+		"@parcel/validator-typescript": "^2.10.0",
+		"@types/chrome": "^0.0.248",
+		"@types/jquery": "^3.5.24",
+		"@types/webextension-polyfill": "^0.10.5",
+		"bulma": "^0.9.4",
+		"jquery": "^3.7.1",
+		"parcel": "^2.10.0",
+		"parcel-reporter-static-files-copy": "^1.5.3",
+		"typescript": "^5.2.2",
+		"webextension-polyfill": "^0.10.0"
+	},
+	"dependencies": {}
+}

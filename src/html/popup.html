@@ -1,0 +1,60 @@
+<!--
+ Copyright (C) 2023 Marcus Huber (xenorio) <dev@xenorio.xyz>
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+ 
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TubeTweaks Menu</title>
+	<!-- <script src="~/node_modules/jquery/dist/jquery.min.js"></script> -->
+	<script src="../scripts/popup.ts" type="module" defer></script>
+	<link rel="stylesheet" href="../styles/common.scss">
+</head>
+<body>
+	<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+		  <a class="navbar-item" href="https://extensions.xenorio.xyz/list/TubeTweaks" target="_blank">
+			<img src="~/static/assets/logo_128x128.png">
+			<h1 style="float: left; margin-left: 1rem;" class="subtitle">TubeTweaks</h1>
+		  </a>
+	  
+		  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		  </a>
+		</div>
+
+		<div class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item options-button">
+					<i class="fa-solid fa-gear"></i> Options
+				</a>
+		  
+				<a class="navbar-item" href="https://github.com/XenoExtensions/TubeTweaks" target="_blank">
+					<i class="fa-brands fa-github"></i> Source
+				</a>
+			  </div>
+		</div>
+
+		<div class="container has-text-centered" style="padding: 1rem;">
+			<button class="button is-primary" id="toggleExtensionButton">Enabled</button>
+		</div>
+
+	  </nav>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!--
+ Copyright (C) 2023 Marcus Huber (xenorio) <dev@xenorio.xyz>
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+ 
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TubeTweaks Options</title>
+	<script src="../scripts/settings.ts" type="module" defer></script>
+	<link rel="stylesheet" href="../styles/common.scss">
+	<link rel="stylesheet" href="../styles/settings.scss">
+</head>
+
+<body>
+	<div class="container has-text-centered">
+
+		<div class="section">
+			<h1 class="title">Video Sharing</h1>
+			<h2 class="subtitle">Settings for YouTube's share feature</h2>
+			<table class="table is-fullwidth is-bordered">
+				<tbody>
+					<tr>
+						<td>
+							Prevent generating tracked links
+						</td>
+						<td>
+							<input type="checkbox" id="shareAntiTrack-enable">
+						</td>
+					</tr>
+					<tr class="disabled-chromium">
+						<td>
+							Prevent loading tracked links
+						</td>
+						<td>
+							<input type="checkbox" id="shareAntiTrack-preventLoading">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Change youtu.be to www.youtube.com
+						</td>
+						<td>
+							<input type="checkbox" id="shareAntiTrack-hostChange">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+
+</html>

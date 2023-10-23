@@ -1,0 +1,49 @@
+/**
+ * Copyright (C) 2023 Marcus Huber (xenorio) <dev@xenorio.xyz>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+@import "~/node_modules/@fontsource/inconsolata/400.css";
+@import "~/node_modules/@fontsource/archivo-black/400.css";
+@import "~/node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+/* Import only what you need from Bulma */
+@import '~/node_modules/bulma/sass/utilities/_all.sass';
+@import '~/node_modules/bulma/sass/base/_all.sass';
+@import '~/node_modules/bulma/sass/elements/_all.sass';
+//@import '~/node_modules/bulma/sass/form/_all.sass';
+@import '~/node_modules/bulma/sass/components/_all.sass';
+//@import '~/node_modules/bulma/sass/grid/_all.sass';
+@import '~/node_modules/bulma/sass/helpers/_all.sass';
+@import '~/node_modules/bulma/sass/layout/_all.sass';
+
+html, body {
+	background-color: black;
+	color: white;
+	font-family: "Inconsolata";
+}
+
+.navbar {
+	user-select: none;
+}
+
+.title {
+	font-family: "Archivo Black";
+	color: white;
+}
+
+.subtitle {
+	color: white;
+}
