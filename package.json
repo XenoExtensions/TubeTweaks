@@ -7,6 +7,7 @@
 		"watch:chromium": "yarn clean && yarn copy-manifest:chromium && npx parcel watch 'src/**/*.*' --no-source-maps --no-hmr --target chromium",
 		"copy-manifest:firefox": "mkdir -p dist/firefox && cp manifest/firefox.json dist/firefox/manifest.json",
 		"copy-manifest:chromium": "mkdir -p dist/chromium && cp manifest/chromium.json dist/chromium/manifest.json",
+		"package:firefox": "yarn build:firefox && npx web-ext build --source-dir dist/firefox/ --overwrite-dest",
 		"clean": "rm -rf dist && rm -rf .parcel-cache"
 	},
 	"targets": {
@@ -33,6 +34,7 @@
 		"parcel": "^2.10.0",
 		"parcel-reporter-static-files-copy": "^1.5.3",
 		"typescript": "^5.2.2",
+		"web-ext": "^7.8.0",
 		"webextension-polyfill": "^0.10.0"
 	},
 	"dependencies": {}
