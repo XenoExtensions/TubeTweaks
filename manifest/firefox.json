@@ -28,5 +28,10 @@
 	],
 	"icons": {
 		"128": "assets/logo_128x128.png"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "tubetweaks@extensions.xenorio.xyz"
+		}
 	}
 }
