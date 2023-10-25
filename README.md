@@ -20,6 +20,7 @@ If you want to use TubeTweaks to its full extent, please consider switching to F
 
 ## Download
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tubetweaks/)
+
 Chromium coming soon!
 
 ## Building
