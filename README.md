@@ -19,7 +19,8 @@ Where no workarounds are possible, the respective feature is removed.
 If you want to use TubeTweaks to its full extent, please consider switching to Firefox!
 
 ## Download
-Coming soon to a Webstore near you!
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/tubetweaks/)
+Chromium coming soon!
 
 ## Building
 ```sh
