@@ -2,13 +2,12 @@
 	"manifest_version": 3,
 	"name": "TubeTweaks",
 	"description": "Various enhancements for YouTube",
-	"version": "1.0",
+	"version": "1.0.1",
 	"permissions": [
 		"webRequest",
 		"webRequestBlocking",
 		"webRequestFilterResponse",
-		"storage",
-		"activeTab"
+		"storage"
 	],
 	"background": {
 		"scripts": [

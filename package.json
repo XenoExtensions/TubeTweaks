@@ -7,6 +7,7 @@
 		"watch:chromium": "yarn clean && yarn copy-manifest:chromium && npx parcel watch 'src/**/*.*' --no-source-maps --no-hmr --target chromium",
 		"copy-manifest:firefox": "mkdir -p dist/firefox && cp manifest/firefox.json dist/firefox/manifest.json",
 		"copy-manifest:chromium": "mkdir -p dist/chromium && cp manifest/chromium.json dist/chromium/manifest.json",
+		"package": "yarn package:chromium && yarn package:firefox",
 		"package:firefox": "yarn build:firefox && npx web-ext build --source-dir dist/firefox/ --overwrite-dest -n firefox.zip",
 		"package:chromium": "yarn build:chromium && npx web-ext build --source-dir dist/chromium/ --overwrite-dest -n chromium.zip",
 		"clean": "rm -rf dist && rm -rf .parcel-cache"
