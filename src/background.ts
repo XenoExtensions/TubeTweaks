@@ -34,6 +34,14 @@ if (detectBrowser() != 'chromium') {
 			return {};
 		}
 
+		if(
+			details.url.includes('.png') ||
+			details.url.includes('.ico') ||
+			details.url.includes('.gif')
+		) {
+			return {};
+		}
+
 		if ((details.url.includes('youtu.be') || details.url.includes('youtube.com')) && await getSetting('shareAntiTrack.preventLoading', true)) {
 			const newUrl = replaceURL(details.url);
 			if (details.url != newUrl) {
