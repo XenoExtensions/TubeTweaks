@@ -56,7 +56,7 @@ async function handleTargetElement(targetElement: HTMLInputElement) {
 		url.hostname = 'www.youtube.com'
 		url.searchParams.set("v", videoId);
 		console.log(videoId)
-		url.pathname = url.pathname.replace(`/${videoId}`, '')
+		url.pathname = url.pathname.replace(`/${videoId}`, '/watch')
 
 	}
 

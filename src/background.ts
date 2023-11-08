@@ -34,7 +34,7 @@ if (detectBrowser() != 'chromium') {
 			return {};
 		}
 
-		if(
+		if (
 			details.url.includes('.png') ||
 			details.url.includes('.ico') ||
 			details.url.includes('.gif')
@@ -42,11 +42,17 @@ if (detectBrowser() != 'chromium') {
 			return {};
 		}
 
-		if ((details.url.includes('youtu.be') || details.url.includes('youtube.com')) && await getSetting('shareAntiTrack.preventLoading', true)) {
+		if ((details.url.includes('youtu.be') || details.url.includes('youtube.com')) && details.url.includes('si=') && await getSetting('shareAntiTrack.preventLoading', true)) {
 			const newUrl = replaceURL(details.url);
 			if (details.url != newUrl) {
 				return { redirectUrl: newUrl }
 			}
+		}
+
+		if (
+			!details.url.includes("www.youtube.com/youtubei/v1/share/get_share_panel")
+		) {
+			return {}
 		}
 
 		let filter = browser.webRequest.filterResponseData(details.requestId);
@@ -64,15 +70,18 @@ if (detectBrowser() != 'chromium') {
 				details.url.includes("www.youtube.com/youtubei/v1/share/get_share_panel")
 			) {
 				if (await getSetting('shareAntiTrack.enabled', true)) {
-					let matches = <string[]>[]
-					matches = matches.concat(content.match(/https?:\/\/(youtu\.be|youtube\.com)\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g) || [])
-					matches = matches.concat(content.match(/https?%3A\/\/(youtu\.be|youtube\.com)\/\b(([-a-zA-Z0-9_]|%2F|%3F|%3D|%26)*)/g) || [])
+					let matches
+					matches = content.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g) || []
+					for (let match of matches) {
+						content = content.replaceAll(match, replaceURL(match))
+					}
+					matches = content.match(/https(%3A|:)\/\/((www|music|shorts)\.)?(youtube\.com|youtu\.be)\/((watch|live|shorts)\/)?([-a-zA-Z0-9_%])*/g) || []
 					for (let match of matches) {
 						content = content.replaceAll(match, replaceURL(match))
 					}
 				}
 				if (await getSetting('shareAntiTrack.hostChange', false)) {
-					content = content.replace(/youtu\.be\//g, 'www.youtube.com?v=')
+					content = content.replace(/youtu\.be\//g, 'www.youtube.com/watch?v=')
 				}
 			}
 
@@ -96,16 +105,22 @@ function replaceURL(inputURL: string) {
 		url = new URL(decodeURIComponent(inputURL))
 		encode = true
 	}
-	let params = url.searchParams
 
-	for (let param of params.keys()) {
-		if (param == 'si') {
-			params.delete(param)
+	if (url.hostname.endsWith("youtube.com") || url.hostname.endsWith("youtu.be")) {
+		let params = url.searchParams
+
+		for (let param of params.keys()) {
+			if (param == 'si') {
+				params.delete(param)
+			}
 		}
+
+		url.search = params.toString()
 	}
 
-	url.search = params.toString()
+	const output = encode ? encodeURIComponent(url.toString()) : url.toString()
+	console.log(`Replacing ${inputURL} with ${output}`)
 
-	return encode ? encodeURIComponent(url.toString()) : url.toString()
+	return output
 }
 
